@@ -279,6 +279,10 @@ module Split
 
         self.save
       end
+
+      true
+    rescue ArgumentError
+      false
     end
 
     def estimate_winning_alternative(goal = nil)
