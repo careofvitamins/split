@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 module Split
   class Configuration
-    attr_accessor :bots
-    attr_accessor :robot_regex
     attr_accessor :ignore_ip_addresses
     attr_accessor :ignore_filter
     attr_accessor :db_failover
@@ -29,6 +27,9 @@ module Split
     attr_accessor :redis
 
     attr_reader :experiments
+
+    attr_writer :bots
+    attr_writer :robot_regex
 
     def bots
       @bots ||= {
@@ -61,12 +62,14 @@ module Split
         'ColdFusion' => 'ColdFusion http library',
         'EventMachine HttpClient' => 'Ruby http library',
         'Go http package' => 'Go http library',
+        'Go-http-client' => 'Go http library',
         'Java' => 'Generic Java http library',
         'libwww-perl' => 'Perl client-server library loved by script kids',
         'lwp-trivial' => 'Another Perl library loved by script kids',
         'Python-urllib' => 'Python http library',
         'PycURL' => 'Python http library',
         'Test Certificate Info' => 'C http library?',
+        'Typhoeus' => 'Ruby http library',
         'Wget' => 'wget unix CLI http client',
 
         # URL expanders / previewers
@@ -74,12 +77,13 @@ module Split
         'bitlybot' => 'bit.ly bot',
         'bot@linkfluence.net' => 'Linkfluence bot',
         'facebookexternalhit' => 'facebook bot',
+        'Facebot' => 'Facebook crawler',
         'Feedfetcher-Google' => 'Google Feedfetcher',
         'https://developers.google.com/+/web/snippet' => 'Google+ Snippet Fetcher',
         'LinkedInBot' => 'LinkedIn bot',
         'LongURL' => 'URL expander service',
         'NING' => 'NING - Yet Another Twitter Swarmer',
-        'Pinterest' => 'Pinterest Bot',
+        'Pinterestbot' => 'Pinterest Bot',
         'redditbot' => 'Reddit Bot',
         'ShortLinkTranslate' => 'Link shortener',
         'Slackbot' => 'Slackbot link expander',
@@ -90,10 +94,13 @@ module Split
 
         # Uptime monitoring
         'check_http' => 'Nagios monitor',
+        'GoogleStackdriverMonitoring' => 'Google Cloud monitor',
         'NewRelicPinger' => 'NewRelic monitor',
         'Panopta' => 'Monitoring service',
         'Pingdom' => 'Pingdom monitoring',
         'SiteUptime' => 'Site monitoring services',
+        'UptimeRobot' => 'Monitoring service',
+        'Datadog/Synthetics' => 'Datadog monitoring',
 
         # ???
         'DigitalPersona Fingerprint Software' => 'HP Fingerprint scanner',
